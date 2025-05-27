@@ -55,32 +55,6 @@ namespace TasksApi.Controllers
 
         }
 
-        // [HttpPatch]
-        // public async Task<IActionResult> UpdateMojForm([FromBody] MojTask newMojTask)
-        // {
-        //     var mojTaskEntity = await _mojTasksRepository.GetMojTaskAsync(newMojTask.TaskId);
-
-        //     if (mojTaskEntity is null)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     mojTaskEntity.TaskDescription = newMojTask.TaskDescription;
-        //     mojTaskEntity.TaskStatus = newMojTask.TaskStatus;
-        //     mojTaskEntity.TaskDueDate = newMojTask.TaskDueDate;
-
-        //     _mojTasksRepository.UpdateMojTask(mojTaskEntity);
-
-        //     if (await _mojTasksRepository.SaveMojTaskAsync())
-        //     {
-        //         return Ok(mojTaskEntity);
-        //     }
-        //     else
-        //     {
-        //         return BadRequest();
-        //     }
-        // }
-
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateMojForm([FromBody] MojTask newMojTask, int id)
         {
