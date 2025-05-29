@@ -9,13 +9,10 @@ public class MojTask
 {
     [Key]
     public int TaskId { get; set; }
-
     [MaxLength(2000)]
     public string? TaskDescription { get; set; } = "";
-
     [Required]
     public required string TaskStatus { get; set; }
-
     [Required]
     public DateOnly TaskDueDate { get; set; }
 

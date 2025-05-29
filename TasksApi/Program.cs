@@ -4,10 +4,13 @@ using Microsoft.OpenApi.Models;
 using TasksApi.DbContexts;
 using TasksApi.Services;
 
+// CORS Settings
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
+// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
@@ -19,12 +22,10 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-
 builder.Services.AddControllers();
 
+// Add swagger documentation
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -53,14 +54,8 @@ if (app.Environment.IsDevelopment())
     app.UseCors(MyAllowSpecificOrigins);
 }
 
-
-
 app.UseHttpsRedirection();
-
-
 app.UseAuthentication();
-
 app.MapControllers();
 
 app.Run();
-
